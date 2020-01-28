@@ -17,8 +17,6 @@ beta = 10  # style_weight
 
 steps = 5000
 
-# for displaying the target image, intermittently
-show_every = 100
 # -----------------------------------------------------
 
 
@@ -72,9 +70,6 @@ def train(content, style, model, device):
         total_loss.backward()
         optimizer.step()
         print(f'Step {ii}/{steps}')
-        # display intermediate images and print the loss
-        if ii % show_every == 0:
-            print('Total loss: ', total_loss.item())
-            show_images(target, content)
+
 
     return target

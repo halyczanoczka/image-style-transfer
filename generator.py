@@ -35,3 +35,4 @@ show_images(content, style)
 output = train(content, style, vgg16, device)
 save_image(output, args.output_path)
 
+show_images(content, output)
