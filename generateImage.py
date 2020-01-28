@@ -1,6 +1,6 @@
 import torch
 from torchvision import models
-import imageHelpers
+import imageHelper
 
 
 def generateImage(content_img_file_path, style_img_file_path):
@@ -15,8 +15,8 @@ def generateImage(content_img_file_path, style_img_file_path):
 
     vgg16.to(device)
 
-    content = imageHelpers.load_image(content_img_file_path).to(device)
-    style = imageHelpers.load_image(style_img_file_path, shape=content.shape[-2:]).to(device)
+    content = imageHelper.load_image(content_img_file_path).to(device)
+    style = imageHelper.load_image(style_img_file_path, shape=content.shape[-2:]).to(device)
 
     # TO DO : display image here
 
