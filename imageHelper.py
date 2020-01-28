@@ -27,8 +27,8 @@ def load_image(img_path, max_size=400, shape=None):
 
     return image
 
-def show_image(img_path):
-    return None
+def show_image(image: Image):
+    image.show()
 
 def save_image(output_path):
     return None

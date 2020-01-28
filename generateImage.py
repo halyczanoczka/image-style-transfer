@@ -1,9 +1,12 @@
 import torch
 from torchvision import models
 import imageHelper
+import argparse
 
 
-def generateImage(content_img_file_path, style_img_file_path):
+def generateImage(content_img_file_path: str, style_img_file_path: str):
+
+    print(content_img_file_path)
     # load vgg16 parameters
     vgg16 = models.vgg16(pretrained=True).features
 
@@ -15,11 +18,24 @@ def generateImage(content_img_file_path, style_img_file_path):
 
     vgg16.to(device)
 
+
     content = imageHelper.load_image(content_img_file_path).to(device)
     style = imageHelper.load_image(style_img_file_path, shape=content.shape[-2:]).to(device)
 
     # TO DO : display image here
-
+    imageHelper.show_image(content)
     # TO DO : get features
 
     # TO DO : calculate gradient
+
+
+
+# create parser
+parser = argparse.ArgumentParser()
+
+# add arguments to the parser
+parser.add_argument("content")
+parser.add_argument("style")
+args = parser.parse_args()
+
+generateImage(args.content, args.style)
