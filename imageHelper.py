@@ -2,6 +2,8 @@ from PIL import Image
 from torchvision import transforms
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy as sc
+
 
 def load_image(img_path, max_size=400, shape=None):
     ''' Load in and transform an image, making sure the image
@@ -49,5 +51,5 @@ def show_images(content, style):
     plt.show()
 
 
-def save_image(output_path):
-    return None
+def save_image(input, output_path):
+    sc.misc.imsave(output_path, im_convert(input))
